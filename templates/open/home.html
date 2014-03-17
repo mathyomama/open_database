@@ -1,0 +1,23 @@
+{% extends 'open/base.html' %}
+
+{% block title %}Potential Jobs{% endblock %}
+
+{% block body_block %}
+<table>
+	<thead>
+		<tr>
+			<th>Company</th>
+			<th>Job</th>
+			<th>Location</th>
+			<th>Description</th>
+			<th>Salary</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for company in company_list %}
+		<tr>
+			<td>{{ company.name }}</td>
+			<tr>
+	</tbody>
+</table>
+{% endblock %}
