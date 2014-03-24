@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import os
 
 def populate():
@@ -24,6 +26,14 @@ def populate():
 		for job in Job.objects.filter(company=company):
 			print "{0} - {1}".format(company, job)
 
+def edit():
+	for i, job in enumerate(Job.objects.all()):
+		print "Editing {0}".format(job.title)
+		job.description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+		job.salary = 10000*i
+		job.location = "Tallahassee, FL"
+		job.save()
+
 def add_company(name):
 	return Company.objects.get_or_create(name=name)[0]
 
@@ -35,4 +45,6 @@ if __name__ == "__main__":
 	os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'open_database.settings')
 	from open.models import Company, Job
 	populate()
+	print "Editing database..."
+	edit()
 	print "Done"

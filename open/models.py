@@ -19,13 +19,13 @@ class Company(models.Model):
 
 class Job(models.Model):
 	company = models.ForeignKey(Company)
-	title = models.CharField(max_length=100)
+	title = models.CharField(max_length=100, verbose_name="Job Title")
 	location = models.CharField(max_length=100, blank=True)
-	description = models.CharField(max_length=1000)
+	description = models.CharField(max_length=1000, verbose_name="Job Description")
 	salary = models.PositiveIntegerField(null=True, blank=True)
 	job_website = models.URLField(max_length=300, blank=True)
 	posted_date = models.DateField(null=True, blank=True)
-	deadline = models.DateField(null=True, blank=True)
+	deadline = models.DateField(null=True, blank=True, verbose_name="Application Deadline")
 	created = models.DateField(auto_now_add=True)
 	lasted_modified = models.DateField(auto_now=True)
 
